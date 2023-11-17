@@ -6,6 +6,14 @@ const findFactorial = (num) => {
 	return factori;
 }; // O(n)T     / O(1)S
 
-console.log(findFactorial(1));
-console.log(findFactorial(4));
-console.log(findFactorial(5));
+const findFactorialRecursive = (num) => {
+	if (num <= 2) {
+		if (num === 0) return 1;
+		return num;
+	}
+	return num * findFactorialRecursive(num - 1);
+}; // O(n)T
+
+console.log(findFactorialRecursive(1));
+console.log(findFactorialRecursive(4));
+console.log(findFactorialRecursive(5));

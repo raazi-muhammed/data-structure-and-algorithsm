@@ -10,5 +10,13 @@ const findFibonacci = (index) => {
 	return fibArry;
 }; // O(n)ST
 
-console.log(findFibonacci(3));
-console.log(findFibonacci(7));
+const findFibonacciRecursive = (index) => {
+	if (index <= 1) return index;
+	return findFibonacciRecursive(index - 1) + findFibonacciRecursive(index - 2);
+}; // O(2^n)ST
+
+console.log(findFibonacciRecursive(0));
+console.log(findFibonacciRecursive(2));
+console.log(findFibonacciRecursive(3));
+console.log(findFibonacciRecursive(4));
+console.log(findFibonacciRecursive(6));
