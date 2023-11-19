@@ -13,3 +13,5 @@ logs/
 temp/
 
 **/.DS_Store
+
+.vscode/
