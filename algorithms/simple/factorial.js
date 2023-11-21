@@ -14,6 +14,19 @@ const findFactorialRecursive = (num) => {
 	return num * findFactorialRecursive(num - 1);
 }; // O(n)T
 
+const input = [[1], [4], [5], [9]];
+
+input.forEach((val) =>
+	console.log(
+		"\n",
+		"Number      :",
+		val[0],
+		"\n",
+		"Factorial   :",
+		findFactorialRecursive(...val)
+	)
+);
+
 console.log(findFactorialRecursive(1));
 console.log(findFactorialRecursive(4));
 console.log(findFactorialRecursive(5));

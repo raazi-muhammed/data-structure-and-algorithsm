@@ -15,6 +15,19 @@ const findFibonacciRecursive = (index) => {
 	return findFibonacciRecursive(index - 1) + findFibonacciRecursive(index - 2);
 }; // O(2^n)ST
 
+const input = [[1], [4], [5], [9]];
+
+input.forEach((val) =>
+	console.log(
+		"\n",
+		"Number      :",
+		val[0],
+		"\n",
+		"Fibonacci   :",
+		findFibonacciRecursive(...val)
+	)
+);
+
 console.log(findFibonacciRecursive(0));
 console.log(findFibonacciRecursive(2));
 console.log(findFibonacciRecursive(3));
