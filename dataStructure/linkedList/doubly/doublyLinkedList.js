@@ -30,6 +30,10 @@ class DoublyLinkedList {
 		}
 	}
 
+	getSize() {
+		return this.size;
+	}
+
 	push(value) {
 		const node = new Node(value);
 		if (this.head === null) this.head = node;
@@ -39,6 +43,36 @@ class DoublyLinkedList {
 		}
 		this.tail = node;
 		this.size++;
+	}
+
+	removeDuplicates() {
+		let current = this.head;
+		let next = current.next;
+		while (current) {
+			if (current.value === next?.value) {
+				while (current.value === next?.value) {
+					this.size--;
+					next = next.next;
+				}
+				if (null) next.prev = current;
+				else this.tail = next;
+
+				current.next = next;
+			}
+			current = current.next;
+		}
+	}
+
+	mergeLinkedList(list) {
+		this.tail.next = list.head;
+
+		let current = list.head;
+		current.prev = this.tail;
+
+		while (current) {
+			this.size++;
+			current = current.next;
+		}
 	}
 
 	getArry() {

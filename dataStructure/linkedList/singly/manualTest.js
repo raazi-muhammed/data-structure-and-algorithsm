@@ -1,15 +1,7 @@
-const { SinglyLinkedList } = require("./SinglyLinkedListWithTail");
+const findFibonacciRecursive = (index) => {
+	if (index <= 1) return index;
+	return findFibonacciRecursive(index - 1) + findFibonacciRecursive(index - 2);
+}; // O(2^n)ST
 
-const sll = new SinglyLinkedList([1, 2, 3, 4, 5, 6, 7, 8]);
-console.log(sll);
-sll.delete(1);
-sll.delete(5);
-console.log(sll);
-sll.delete(8);
-expect(sll.getArray()).toEqual([2, 3, 4, 6, 7]);
-expect(sll.getSize()).toBe(5);
-
-sll.delete(10);
-sll.delete(32);
-expect(sll.getArray()).toEqual([2, 3, 4, 6, 7]);
-expect(sll.getSize()).toBe(5);
+let a = findFibonacciRecursive(5);
+console.log(a);
