@@ -13,5 +13,6 @@ logs/
 temp/
 
 **/.DS_Store
+**/manualTest.js
 
 .vscode/

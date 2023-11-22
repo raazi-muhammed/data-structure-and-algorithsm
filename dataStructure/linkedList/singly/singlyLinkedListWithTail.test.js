@@ -80,5 +80,20 @@ describe("Singly Linked list", () => {
 		expect(sll.getArray()).toEqual([5, 1, 44, 50, 55, 2, 22, 3, 4, 45]);
 		expect(sll.getSize()).toBe(10);
 	});
-	test("Printing list", () => {});
+	test("Removing Duplicates from Array", () => {
+		const sll = new SinglyLinkedList([1, 2, 2, 4, 5]);
+		sll.removeDuplicates();
+		expect(sll.getArray()).toEqual([1, 2, 4, 5]);
+		expect(sll.getSize()).toBe(4);
+
+		const sll1 = new SinglyLinkedList([1, 2, 2, 4, 4, 4, 5, 5, 5, 5]);
+		sll1.removeDuplicates();
+		expect(sll1.getArray()).toEqual([1, 2, 4, 5]);
+		expect(sll1.getSize()).toBe(4);
+
+		const sll2 = new SinglyLinkedList([1, 2]);
+		sll2.removeDuplicates();
+		expect(sll2.getArray()).toEqual([1, 2]);
+		expect(sll2.getSize()).toBe(2);
+	});
 });

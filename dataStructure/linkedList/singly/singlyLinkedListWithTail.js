@@ -8,7 +8,7 @@ class Node {
 class SinglyLinkedList {
 	head = null;
 	tail = null;
-	size = null;
+	size = 0;
 
 	constructor(values = []) {
 		if (values.length > 0) {
@@ -154,14 +154,20 @@ class SinglyLinkedList {
 			}
 		}
 	}
-	displayReverse() {
-		if (this.size <= 0) console.log("List is empty");
-		else {
-			let current = this.head;
-			while (current) {
-				console.log(current.value);
-				current = current.next;
+
+	removeDuplicates() {
+		let current = this.head;
+
+		while (current) {
+			let next = current.next;
+			if (current.value === next?.value) {
+				while (current.value === next?.value) {
+					next = next.next;
+					this.size--;
+				}
+				current.next = next;
 			}
+			current = current.next;
 		}
 	}
 
