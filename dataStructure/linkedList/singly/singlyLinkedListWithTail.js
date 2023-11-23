@@ -171,6 +171,20 @@ class SinglyLinkedList {
 		}
 	}
 
+	reverseAndSave() {
+		let current = this.head;
+		let previous = null;
+		let next;
+
+		while (current) {
+			next = current.next;
+			current.next = previous;
+			previous = current;
+			current = next;
+		}
+		[this.head, this.tail] = [this.tail, this.head];
+	}
+
 	getArray() {
 		if (this.size <= 0) return ["List empty"];
 		else {

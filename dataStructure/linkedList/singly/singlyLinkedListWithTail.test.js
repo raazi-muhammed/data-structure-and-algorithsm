@@ -96,4 +96,9 @@ describe("Singly Linked list", () => {
 		expect(sll2.getArray()).toEqual([1, 2]);
 		expect(sll2.getSize()).toBe(2);
 	});
+	test("Revising linked list", () => {
+		const sll = new SinglyLinkedList([1, 2, 3]);
+		sll.reverseAndSave();
+		expect(sll.getArray()).toEqual([3, 2, 1]);
+	});
 });
