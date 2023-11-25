@@ -144,6 +144,15 @@ class SinglyLinkedList {
 		}
 	}
 
+	delete(val) {
+		let current = this.head;
+		let previous = null;
+		while (current) {
+			if (current.value === val) previous = current;
+			current = current.next;
+		}
+	}
+
 	display() {
 		if (this.size <= 0) console.log("List is empty");
 		else {

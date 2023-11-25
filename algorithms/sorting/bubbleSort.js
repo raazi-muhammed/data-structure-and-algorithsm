@@ -13,6 +13,6 @@ const bubbleSort = (arr) => {
 	} while (isItemsSwapped);
 
 	return arr;
-}; // O(n^2)
+}; 
 
 module.exports = { bubbleSort };
