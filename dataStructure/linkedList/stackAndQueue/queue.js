@@ -10,6 +10,7 @@ class Queue {
     front = null;
     size = 0;
 
+    /** @param {number[]} [values] */
     constructor(values = []) {
         if (values.length <= 0) {
             this.rare = null;
@@ -22,6 +23,7 @@ class Queue {
         }
     }
 
+    /** @param {number} value */
     enqueue(value) {
         const node = new Node(value);
         if (this.rare === null) {

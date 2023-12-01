@@ -32,7 +32,7 @@ class Stack {
         }
     }
 
-    /** @param {number} value */
+    /** @param {*} value */
     push(value) {
         if (this.limit != null && this.size >= this.limit) return;
 
@@ -55,7 +55,6 @@ class Stack {
         this.limit = val;
     }
 
-    /** @returns {number[]} */
     getValues() {
         let array = [];
         let current = this.top;
