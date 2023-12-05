@@ -1,10 +1,10 @@
 const { bubbleSort } = require("./bubbleSort");
+const { heapSort } = require("./heapSort");
 const { mergeSort } = require("./mergeSort");
 
 /** @param {string} str */
 const stringSort = (str) => {
-    // any sorting algorithm
-    const sortArray = bubbleSort(str.split(""));
+    const sortArray = heapSort(str.split(""));
     return sortArray.join("");
 };
 
@@ -26,7 +26,7 @@ const sortOddAndEvenIntoSeparateArray = (array) => {
         if (itm % 2 === 0) even.push(itm);
         else odd.push(itm);
     }
-    return [mergeSort(even), mergeSort(odd)];
+    return [heapSort(even), heapSort(odd)];
 };
 
 module.exports = {

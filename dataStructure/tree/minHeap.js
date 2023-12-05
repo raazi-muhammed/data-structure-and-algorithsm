@@ -101,12 +101,15 @@ class minHeap {
             values.push(this.heap[i]);
             if (i === (Math.pow(2, count) - 1) * 2) {
                 count++;
-                console.log(values);
+
+                console.log(values.reduce((a, e) => (a += `${e} `), " "));
                 values = [];
             }
         }
-        console.log(values);
     }
 }
+
+const mHeap = new minHeap([2, 4, 5, 6, 9, 22, 8]);
+mHeap.drawHeap();
 
 module.exports = { minHeap };
