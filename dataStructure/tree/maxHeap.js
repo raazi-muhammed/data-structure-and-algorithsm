@@ -1,12 +1,11 @@
-class minHeap {
+class maxHeap {
     /** @type {number[]} */
     heap;
 
-    /** @param {number[]} [values]  */
+    /** @param {number[]} [values=[]]  */
     constructor(values = []) {
-        if (values.length <= 0) {
-            this.heap = [];
-        } else {
+        this.heap = values;
+        if (values.length > 0) {
             this.heap = values;
             this.heapify();
         }
@@ -18,38 +17,10 @@ class minHeap {
         }
     }
 
-    /** @param {number} currentIdx  */
-    shiftDown(currentIdx) {
-        let endIdx = this.heap.length - 1;
-        let leftIdx = this.leftChild(currentIdx);
-        while (leftIdx <= endIdx) {
-            const rightIdx = this.rightChild(currentIdx);
-            let idxToShift;
-            if (
-                rightIdx <= endIdx &&
-                this.heap[rightIdx] < this.heap[leftIdx]
-            ) {
-                idxToShift = rightIdx;
-            } else {
-                idxToShift = leftIdx;
-            }
-
-            if (this.heap[currentIdx] > this.heap[idxToShift]) {
-                this.swap(currentIdx, idxToShift);
-                currentIdx = idxToShift;
-                leftIdx = this.leftChild(currentIdx);
-            } else break;
-        }
-    }
-
-    /** @param {number} currentIdx  */
-    shiftUp(currentIdx) {
-        let parentIdx = this.parent(currentIdx);
-        while (currentIdx > 0 && this.heap[parentIdx] > this.heap[currentIdx]) {
-            this.swap(parentIdx, currentIdx);
-            currentIdx = parentIdx;
-            parentIdx = this.parent(currentIdx);
-        }
+    /** @param {number} value  */
+    insert(value) {
+        this.heap.push(value);
+        this.shiftUp(this.heap.length - 1);
     }
 
     remove() {
@@ -58,16 +29,45 @@ class minHeap {
         this.shiftDown(0);
     }
 
-    /** @param {number} value  */
-    insert(value) {
-        this.heap.push(value);
-        this.shiftUp(this.heap.length - 1);
+    shiftDown(currentIdx) {
+        let endIdx = this.heap.length - 1;
+        let leftIdx = this.leftChild(currentIdx);
+
+        while (leftIdx <= endIdx) {
+            let rightIdx = this.rightChild(currentIdx);
+            let idxToShift;
+            if (
+                rightIdx <= endIdx &&
+                this.heap[rightIdx] > this.heap[leftIdx]
+            ) {
+                idxToShift = rightIdx;
+            } else idxToShift = leftIdx;
+
+            if (this.heap[idxToShift] > this.heap[currentIdx]) {
+                this.swap(idxToShift, currentIdx);
+                currentIdx = idxToShift;
+                leftIdx = this.leftChild(currentIdx);
+            } else break;
+        }
+    }
+
+    shiftUp(currentIdx) {
+        let parentIdx = this.parent(currentIdx);
+        while (currentIdx > 0 && this.heap[currentIdx] > this.heap[parentIdx]) {
+            this.swap(parentIdx, currentIdx);
+            currentIdx = parentIdx;
+            parentIdx = this.parent(currentIdx);
+        }
     }
 
     swap(idx, jdx) {
-        let temp = this.heap[idx];
+        const temp = this.heap[idx];
         this.heap[idx] = this.heap[jdx];
         this.heap[jdx] = temp;
+    }
+
+    peak() {
+        return this.heap[0] || null;
     }
 
     /** @param {number} index  */
@@ -89,10 +89,6 @@ class minHeap {
         return this.heap;
     }
 
-    peak() {
-        return this.heap[0] || null;
-    }
-
     drawHeap() {
         let count = 0;
         let values = [];
@@ -109,4 +105,4 @@ class minHeap {
     }
 }
 
-module.exports = { minHeap };
+module.exports = { maxHeap };

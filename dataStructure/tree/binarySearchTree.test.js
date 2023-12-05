@@ -52,4 +52,18 @@ describe("Binary Search Tree", () => {
         expect(bst.min()).toBe(2);
         expect(bst.max()).toBe(52);
     });
+    test("Deleting", () => {
+        const bst = new BinarySearchTree();
+        bst.insert(10);
+        bst.insert(12);
+        bst.insert(52);
+        bst.insert(22);
+        bst.insert(42);
+        bst.insert(2);
+
+        bst.delete(2);
+        bst.delete(42);
+
+        expect(bst.inOrder()).toEqual([10, 12, 22, 52]);
+    });
 });
