@@ -109,6 +109,7 @@ class BinarySearchTree {
         return array;
     }
 
+    // also known as BFS
     levelOrder() {
         const queue = [];
         const array = [];
