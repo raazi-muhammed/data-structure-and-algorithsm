@@ -58,6 +58,16 @@ class Trie {
         }
         return true;
     }
+    hasExactWord(word) {
+        let current = this.root;
+
+        for (let i = 0; i < word.length; i++) {
+            if (!current.children.has(word.charAt(i))) return false;
+            current = current.children.get(word.charAt(i));
+        }
+        if (!current.isEnd) return false;
+        else return true;
+    }
 
     /* show() {
         return this.showHelper(this.root, []);

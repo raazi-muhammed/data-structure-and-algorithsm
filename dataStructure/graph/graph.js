@@ -110,8 +110,7 @@ class Graph {
                         isItemFound = true;
                     }
                 });
-
-                stack.pop();
+                stack.shift();
             }
         });
 

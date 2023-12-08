@@ -30,7 +30,19 @@ describe("Trie Test", () => {
         expect(tri.hasPrefix("raj")).toBe(false);
         expect(tri.hasPrefix("j")).toBe(false);
     });
-    test("Words starting with", () => {
+    test("Has exact word", () => {
+        const tri = new Trie();
+
+        tri.insert("raazi");
+        tri.insert("rahul");
+
+        expect(tri.hasExactWord("raazi")).toBe(true);
+        expect(tri.hasExactWord("raaz")).toBe(false);
+        expect(tri.hasExactWord("rahu")).toBe(false);
+        expect(tri.hasExactWord("rahull")).toBe(false);
+        expect(tri.hasExactWord("rahul")).toBe(true);
+    });
+    test("Get words starting with", () => {
         const tri = new Trie();
 
         tri.insert("raazi");

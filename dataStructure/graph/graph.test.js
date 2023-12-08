@@ -95,7 +95,10 @@ describe("Graph Test", () => {
         });
     });
     test("Traversal", () => {
-        expect(graph.traverseBFS()).toEqual([1, 2, 3, 6, 8, 16, 19]);
-        expect(graph.traverseDFS()).toEqual([1, 2, 3, 6, 8, 16, 19]);
+        graph.insert(2, 9);
+        graph.insert(9, 16);
+
+        expect(graph.traverseDFS()).toEqual([1, 2, 9, 16, 3, 6, 8, 19]);
+        expect(graph.traverseBFS()).toEqual([1, 2, 3, 9, 6, 16, 8, 19]);
     });
 });
